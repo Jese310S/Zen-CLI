@@ -45,22 +45,50 @@ function getSingleTicket(id) {
 const inquire = () => {
     inquirer
       .prompt([
-        { type: 'list', message: "'What would you like to do'", name: "options", choices: [
+        { type: 'list', message: "'What would you like to do?'", name: "options", choices: [
             "Display all tickets",
             "Display a ticket",
             "quit"
         ] }
     ]).then(answers => {
         if (answers.options === "Display all tickets"){
-             console.log('all tickets'); 
-             inquire();
+         //get tickets from API
+            getTickets().then((tickets, err)=>{
+                if (err) console.log(err.code, "\nSomething went wrong, please check and try again")
+                //TODO: Display Tickets here
+                console.log(tickets)
+                inquire();
+            }) 
+    
         } else if (answers.options === "Display a ticket"){
             
-            // TODO: Prompt user to enter ticketID
-            console.log('single ticket')
-            inquire();
+            // Prompt user to enter ticketID
+            inquirer.prompt([
+                {type: 'list', message: 'Do you know the ticket id?', name: "options", choices: [
+                    "yes",
+                    "no"
+                ]}
+            ]).then(answers => {
+                if (answers.options === "yes"){
+                    inquirer.prompt([
+                        {type: 'number', message: "Enter the ticked ID number", name: "idNum" }
+                    ]).then(ticketId => {
+                    //get single ticket from API
+                        getSingleTicket(ticketId.idNum).then((ticket, err) => {
+                            if (err) console.log(err.code, "\nPlease enter a valid ticket number")
+                            //TODO: display ticket info
+                            console.log(ticket.description);
+                            inquire();
+                        })
+                    }
+
+                    )
+                }
+            })
+
+
         } else {
-            console.log("Have a Zen day!")
+            console.log("have a great day!")
         }
     }
     )
