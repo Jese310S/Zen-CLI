@@ -2,9 +2,10 @@ require('dotenv').config()
 const axios = require("axios");
 const inquirer = require("inquirer");
 
-
+console.log(process.env)
 const url = 'https://jsole.zendesk.com/api/v2/tickets.json';
 
+// gets all tickets from API
 function getTickets() {
 
     return new Promise((resolve, reject) => {
@@ -15,9 +16,26 @@ function getTickets() {
             }
         })
         .then ( res => {
-            console.log(res.data.tickets) 
+            resolve(res.data.tickets); 
         })
     });
 }
 
-getTickets();
+// getTickets();
+
+// gets a single specified ticket from the API
+function getSingleTicket(id) {
+    return new Promise((resolve, reject) => {
+        axios.get(`https://jsole.zendesk.com/api/v2/tickets/${id}.json`, {
+            auth: {
+                username: process.env.AUTH_USER,
+                password: process.env.AUTH_PASS
+            }
+        })
+        .then ( res => {
+            resolve(res.data.ticket);  
+        })
+    });
+}
+
+getSingleTicket(100);
