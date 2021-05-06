@@ -2,7 +2,7 @@ require('dotenv').config()
 const axios = require("axios");
 const inquirer = require("inquirer");
 
-console.log(process.env)
+
 const url = 'https://jsole.zendesk.com/api/v2/tickets.json';
 
 // gets all tickets from API
@@ -21,7 +21,7 @@ function getTickets() {
     });
 }
 
-// getTickets();
+
 
 // gets a single specified ticket from the API
 function getSingleTicket(id) {
@@ -38,4 +38,34 @@ function getSingleTicket(id) {
     });
 }
 
-getSingleTicket(100);
+
+
+
+
+const inquire = () => {
+    inquirer
+      .prompt([
+        { type: 'list', message: "'What would you like to do'", name: "options", choices: [
+            "Display all tickets",
+            "Display a ticket",
+            "quit"
+        ] }
+    ]).then(answers => {
+        if (answers.options === "Display all tickets"){
+             console.log('all tickets'); 
+             inquire();
+        } else if (answers.options === "Display a ticket"){
+            
+            // TODO: Prompt user to enter ticketID
+            console.log('single ticket')
+            inquire();
+        } else {
+            console.log("Have a Zen day!")
+        }
+    }
+    )
+  };
+
+
+   inquire();
+  
