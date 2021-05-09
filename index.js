@@ -1,6 +1,7 @@
 require('dotenv').config()
 const axios = require("axios");
 const inquirer = require("inquirer");
+const Table = require("cli-table");
 
 
 const url = 'https://jsole.zendesk.com/api/v2/tickets.json';
@@ -56,9 +57,21 @@ const inquire = () => {
             getTickets().then((tickets, err)=>{
                 if (err) console.log(err.code, "\nSomething went wrong, please check and try again")
                 //TODO: Display Tickets here
-                console.log(tickets)
-                inquire();
-            }) 
+
+                    // instantiate table
+                    var table = new Table({
+                     head: ['ID', 'Created_at', 'Submitter_Id', 'Subject']
+                    , colWidths: [20, 20, 20, 40]
+                        });
+                        //loop through Json
+                    tickets.forEach(obj => {
+                        table.push(
+                            [obj.id, obj.created_at, obj.submitter_id, obj.subject]
+                        )
+                         })
+                    console.log(table.toString());
+                     inquire();
+              })
     
         } else if (answers.options === "Display a ticket"){
             
@@ -77,18 +90,33 @@ const inquire = () => {
                         getSingleTicket(ticketId.idNum).then((ticket, err) => {
                             if (err) console.log(err.code, "\nPlease enter a valid ticket number")
                             //TODO: display ticket info
-                            console.log(ticket.description);
+                            // instantiate table
+                        var table = new Table({
+                                head: ['Ticket']
+                             , colWidths: [20, 60]
+                            });
+
+                           table.push(
+                               {'ID':ticket.id}, 
+                               {'Submitter Id': ticket.submitter_id},
+                               {'Status' : ticket.status},
+                               {'URL': ticket.url}, 
+                               {'Description' : ticket.description}
+                           )
+                            console.log(table.toString());
                             inquire();
                         })
                     }
 
                     )
+                }else{
+                    inquire();
                 }
             })
 
 
         } else {
-            console.log("have a great day!")
+            console.log("Have a great day!")
         }
     }
     )
