@@ -19,8 +19,8 @@
   "homepage": "https://github.com/Jese310S/Zen-CLI#readme",
   "dependencies": {
     "axios": "^0.21.1",
+    "cli-table": "^0.3.6",
     "dotenv": "^9.0.0",
-    "inquirer": "^8.0.0",
-    "table-layout": "^2.1.0"
+    "inquirer": "^8.0.0"
   }
 }
