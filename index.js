@@ -200,3 +200,6 @@ const inquire = () => {
 }
 
    inquire();
+
+
+   export {getSingleTicket, getTickets, pagination, inquire };
