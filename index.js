@@ -139,87 +139,51 @@ const inquire = () => {
             });
         } else if (answers.options === "Display a ticket") {
               // Prompt user to enter ticketID
+              inquirer.prompt([
+                  {
+                  type:'list',
+                  message: 'Do you know the ticket ID number?',
+                  name: 'options',
+                  choices: [
+                    'yes',
+                    'no'
+                  ]}
+              ]).then(answers => {
+                  if (answers.options === 'yes'){
+                      inquirer.prompt([
+                          {type: 'number', 
+                          message: 'Enter ticket ID number',
+                          name: 'idNum',
+                        }
+                      ]).then(ticketId => {
+                          //handle err
+                          getSingleTicket(ticketId.idNum).then((ticket, err) => {
+                              if(err) console.log(err.code, '\nPlease enter a valid ticket number');
+                                                    //instantiate Table
+                            var table = new Table(
+                                {
+                                head: ['Ticket']
+                             , colWidths: [20, 60]
+                                }
+                           );
+                            table.push(
+                                {'ID':ticket.id}, 
+                                {'Submitter Id': ticket.submitter_id},
+                                {'Status' : ticket.status},
+                                {'URL': ticket.url}, 
+                                {'Description' : ticket.description}
+                            );
+                            console.log(table.toString());
+                             inquire();
+                        })
+
+                      })
+                  }
+              })
         } else {
             console.log("Have a great day!")
         }
     });
 }
-
-
-
-// const inquire = () => {
-//     inquirer
-//       .prompt([
-//         { type: 'list', message: "'What would you like to do?'", name: "options", choices: [
-//             "Display all tickets",
-//             "Display a ticket",
-//             "quit"
-//         ] }
-//     ]).then(answers => {
-//         if (answers.options === "Display all tickets"){
-//             getTickets().then((tickets, err)=>{
-//                     if (err) console.log(err.code, "\nSomething went wrong, please check and try again")
-
-//                     // instantiate table
-//                     var table = new Table({
-//                      head: ['ID', 'Created_at', 'Submitter_Id', 'Subject']
-//                     , colWidths: [20, 20, 20, 40]
-//                         });
-//                         tickets.forEach(ticket => {
-//                                          table.push([ticket.id, ticket.created_at, ticket.submitter_id, ticket.subject])
-//                                     })
-//                                 console.log(table.toString());
-//                                 }
-//                         inquire();
-//                             });
-
-//         } else if (answers.options === "Display a ticket"){
-            
-//             // Prompt user to enter ticketID
-//             inquirer.prompt([
-//                 {type: 'list', message: 'Do you know the ticket id?', name: "options", choices: [
-//                     "yes",
-//                     "no"
-//                 ]}
-//             ]).then(answers => {
-//                 if (answers.options === "yes"){
-//                     inquirer.prompt([
-//                         {type: 'number', message: "Enter the ticked ID number", name: "idNum" }
-//                     ]).then(ticketId => {
-//                     //get single ticket from API
-//                         getSingleTicket(ticketId.idNum).then((ticket, err) => {
-//                             if (err) console.log(err.code, "\nPlease enter a valid ticket number")
-//                             // instantiate table
-//                         var table = new Table({
-//                                 head: ['Ticket']
-//                              , colWidths: [20, 60]
-//                             });
-
-//                            table.push(
-//                                {'ID':ticket.id}, 
-//                                {'Submitter Id': ticket.submitter_id},
-//                                {'Status' : ticket.status},
-//                                {'URL': ticket.url}, 
-//                                {'Description' : ticket.description}
-//                            )
-//                             console.log(table.toString());
-//                             inquire();
-//                         })
-//                     }
-
-//                     )
-//                 }else{
-//                     inquire();
-//                 }
-//             })
-
-
-//         } else {
-//             console.log("Have a great day!")
-//         }
-//     }
-//     )
-//   };
-
 
    inquire();
