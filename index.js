@@ -12,6 +12,7 @@ function getTickets(page) {
     return new Promise((resolve, reject) => {
         axios.get((page) ? page : url, {
             auth: {
+        //use dotenv to make environment variable, see .env_sample for examples
                 username: process.env.AUTH_USER,
                 password: process.env.AUTH_PASS
             }
