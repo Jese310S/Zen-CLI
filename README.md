@@ -5,9 +5,9 @@
       - [Challenges Faced:](#challenges-faced-)
   * [Features](#features)
   * [User Flow](#user-flow)
-  * [Tech Stack & Npm Packages](#tech-stack---npm-packages)
+  * [Tech Stack & Npm Packages](#tech-stack)
   * [Testing](#testing)
-  * [Authentication & Dotenv](#authentication---dotenv)
+  * [Authentication](#authentication)
   * [How to Install](#how-to-install)
   * [How to Run Tests](#how-to-run-tests)
 
@@ -37,7 +37,7 @@ Going into the challenge I had used this tech stack only a couple times .  I had
 
 ![User Flow](/images/user_flow.jpeg)
 
-## Tech Stack & Npm Packages
+## Tech Stack
 
 - Node
 
@@ -62,9 +62,9 @@ This testing was used for both main functions of the program.  It tests the getT
 
 
 
-## Authentication & Dotenv
+## Authentication
 
-The authentication for the API uses basic authentication.  To use the App you will need to be given the username and password.  Rename the dev.example.env file to .env.  In that file enter the username and password given into the variables.  This should now allow the API to authenticate with the environment variables.
+The authentication for the API uses basic authentication. The program uses Dotenv to create environment variables. To use the App you will need to be given the username and password.  Rename the dev.example.env file to .env.  In that file enter the username and password given to you.  This should now allow the API to authenticate with the environment variables.
 
 ## How to Install
 
