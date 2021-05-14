@@ -85,6 +85,7 @@ const inquire = () => {
   }]).then(answers => {
       if (answers.options === "Display all tickets"){
           ZenAPI.getTickets().then((results, err) => {
+              console.log(results);
               //handle err
               if (err) console.log(err.code, "\nSomething went wrong, please check and try again.")
               //instantiate table
@@ -93,17 +94,17 @@ const inquire = () => {
                   colWidths: [20, 20, 20, 40]
               });
               //loop through tickets and push to the cli-table array
-              results.tickets.forEach(ticket => {
+              results.data.tickets.forEach(ticket => {
                   table.push([ticket.id, ticket.created_at, ticket.submitter_id, ticket.subject])
               });
               //console.log to make table
               console.log(table.toString());
               //makes sure prev option does not appear on first page
-              if (results.tickets[0].id > 25) {
+              if (results.data.tickets[0].id > 25) {
                   
                   pagination(results.links.prev, results.links.next);// api links to paginate and go to next and prev pages
               } else {
-                  pagination(false, results.links.next);
+                  pagination(false, results.data.links.next);
               }
           });
       } else if (answers.options === "Display a ticket") {
