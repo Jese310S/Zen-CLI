@@ -152,6 +152,8 @@ const inquire = () => {
                       })
 
                     })
+                }else {
+                    inquire();
                 }
             })
       } else {
