@@ -25,16 +25,16 @@ const pagination = (prev, next) => {
                   colWidths: [20, 20, 20, 40]
               });
               ////loop and push each tickets desired info to table array
-              results.tickets.forEach(ticket => {
+              results.data.tickets.forEach(ticket => {
                   table.push([ticket.id, ticket.created_at, ticket.submitter_id, ticket.subject])
               });
               //console table to be created by cli-table 
               console.log(table.toString());
               //makes sure prev does not appear when on first or last page
-              if (results.tickets[0].id > 25) {
-                  pagination(results.links.prev, results.links.next);
+              if (results.data.tickets[0].id > 25) {
+                  pagination(results.data.links.prev, results.data.links.next);
               } else {
-                  pagination(false, results.links.next);
+                  pagination(false, results.data.links.next);
               }
               
           });
