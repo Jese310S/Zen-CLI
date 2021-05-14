@@ -1,6 +1,15 @@
 # **Zen-Cli**
-
-[TOC]
+## Table of Contents
+ * [Purpose](#purpose)
+      - [Why use a CLI?](#why-use-a-cli-)
+      - [Challenges Faced:](#challenges-faced-)
+  * [Features](#features)
+  * [User Flow](#user-flow)
+  * [Tech Stack & Npm Packages](#tech-stack---npm-packages)
+  * [Testing](#testing)
+  * [Authentication & Dotenv](#authentication---dotenv)
+  * [How to Install](#how-to-install)
+  * [How to Run Tests](#how-to-run-tests)
 
 
 
