@@ -28,7 +28,7 @@ describe('Zendesk Tickets API Endpoint', () => {
   });
 
 
-// tests that the function uses the specific url provided
+// tests that the function uses the specific url provided and returns Promise
   it('hits a specific url', async () => {
     const url = 'https://j.zendesk.com/api/v2/tickets.json?page[size]=50';
 
