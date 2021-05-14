@@ -17,11 +17,11 @@
 
 This app is a command line program that is designed to call and retrieve the Zendesk customer support tickets for the given account.  The app makes a call to the Zendesk API and retrieves the users data.  The tickets are displayed in blocks of 25 at a time.  The user can choose to display all tickets or a single ticket through prompts.
 
-#### Why use a CLI?
+#### Why use a CLI
 
 I chose to challenge myself and make the app a command line program.  With each coding challenge I do I like to make sure I am challenging myself to try new approaches and different tech stacks.
 
-#### Challenges Faced:
+#### Challenges Faced
 
 Going into the challenge I had used this tech stack only a couple times.  I had not used an API call with a CLI before. I decided this would be a good time to challenge myself and give it a try. This meant I spent more time reading documentation and reminding myself how things worked.  Apparently, command line applications are a bit niche.  This means less documentation/questions & answers out there.
 
