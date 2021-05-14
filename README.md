@@ -19,11 +19,11 @@ This app is a command line program that is designed to call and retrieve the Zen
 
 #### Why use a CLI?
 
-I chose to challenge myself and make the app a command line program.  With each coding challenge I do I like to make sure I am challenging myself to try new appraoches and different tech stacks.   
+I chose to challenge myself and make the app a command line program.  With each coding challenge I do I like to make sure I am challenging myself to try new approaches and different tech stacks.
 
 #### Challenges Faced:
 
-Going into the challenge I had used this tech stack only a couple times .  I had not used an API call with a CLI before.  This meant I spent more time reading documentation and reminding myself how things worked.  Also command line applications are a bit niche.  There is not too many people who make them.  This means less documentation/questions & answer out there.  This did not make things impossible 
+Going into the challenge I had used this tech stack only a couple times.  I had not used an API call with a CLI before.  This meant I spent more time reading documentation and reminding myself how things worked.  Also command line applications are a bit niche.  There is not too many people who make them.  This means less documentation/questions & answer out there.  This did not make things impossible 
 
 ## Features
 
