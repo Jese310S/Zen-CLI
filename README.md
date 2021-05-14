@@ -70,7 +70,7 @@ The authentication for the API uses basic authentication.  To use the App you wi
 
 1. You will need Node.js installed on your computer.
 
-[Download Node.js here]: https://nodejs.org/en/download/
+[Download Node.js here](https://nodejs.org/en/download/)
 
 2. Fork or Clone this repository to your local computer
 
