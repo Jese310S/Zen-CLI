@@ -48,17 +48,17 @@ const pagination = (prev, next) => {
                   colWidths: [20, 20, 20, 40]
               });
               //loop and push each tickets desired info to cli-table array
-              results.tickets.forEach(ticket => {
+              results.data.tickets.forEach(ticket => {
                   table.push([ticket.id, ticket.created_at, ticket.submitter_id, ticket.subject])
               });
               //console.log table to be created by cli-table 
               console.log(table.toString());
               //makes sure prev does not appear when on first or last page
-              if (results.tickets[0].id > 25) {
+              if (results.data.tickets[0].id > 25) {
                   
-                  pagination(results.links.prev, results.links.next);// api links to paginate and go to next and prev pages
+                  pagination(results.data.links.prev, results.data.links.next);// api links to paginate and go to next and prev pages
               } else {
-                  pagination(false, results.links.next);
+                  pagination(false, results.data.links.next);
               }
               
           });
@@ -128,6 +128,7 @@ const inquire = () => {
                       }
                     ]).then(ticketId => {
                       ZenAPI.getSingleTicket(ticketId.idNum).then((ticket, err) => {
+                          let ticketChoice = ticket.data.ticket
                       //handle err
                             if(err) console.log(err.code, '\nPlease enter a valid ticket number');
                       //instantiate Table
@@ -139,11 +140,11 @@ const inquire = () => {
                          );
                          //Push the desired ticket info to the cli-table array
                           table.push(
-                              {'ID':ticket.id}, 
-                              {'Submitter Id': ticket.submitter_id},
-                              {'Status' : ticket.status},
-                              {'URL': ticket.url}, 
-                              {'Description' : ticket.description}
+                              {'ID':ticketChoice.id}, 
+                              {'Submitter Id': ticketChoice.submitter_id},
+                              {'Status' : ticketChoice.status},
+                              {'URL': ticketChoice.url}, 
+                              {'Description' : ticketChoice.description}
                           );
                           //console.log to show table
                           console.log(table.toString());
