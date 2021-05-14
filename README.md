@@ -15,7 +15,7 @@
 
 ## Purpose
 
-This app is a command line program that is designed to call and retrieve the Zendesk customer support tickets for the given account.  The app makes a call to the Zendesk API and retrieves the users data.  The tickets are displayed in blocks of 25 at a time.  The user can choose to display all tickets or a single ticket through prompts.  
+This app is a command line program that is designed to call and retrieve the Zendesk customer support tickets for the given account.  The app makes a call to the Zendesk API and retrieves the users data.  The tickets are displayed in blocks of 25 at a time.  The user can choose to display all tickets or a single ticket through prompts.
 
 #### Why use a CLI?
 
@@ -31,7 +31,7 @@ I also faced challenges with testing.  Writing tests for API response is not som
 
 - Simple UI
 - Usage of Zendesk API
-- Promts for user input
+- Prompts for user input
 
 
 
