@@ -74,7 +74,7 @@ The authentication for the API uses basic authentication.  To use the App you wi
 
 2. Fork or Clone this repository to your local computer
 
-3.  You will need to install any dependencies of the app.  You can do this wil the following commands from the root directory :
+3.  You will need to install any dependencies of the app.  You can do this with the following commands from the root directory :
 
 `npm install`
 
