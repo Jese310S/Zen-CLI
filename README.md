@@ -87,3 +87,6 @@ The authentication for the API uses basic authentication. The program uses Doten
 ## How to Run Tests
 
 To run the tests type `npm test`
+
+
+<a href="#top">Back to top</a>
