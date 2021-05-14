@@ -1,8 +1,8 @@
 # **Zen-Cli**
 ## Table of Contents
  * [Purpose](#purpose)
-      - [Why use a CLI?](#why-use-a-cli-)
-      - [Challenges Faced:](#challenges-faced-)
+      - [Why use a CLI?](#why-use-a-cli)
+      - [Challenges Faced:](#challenges-faced)
   * [Features](#features)
   * [User Flow](#user-flow)
   * [Tech Stack & Npm Packages](#tech-stack)
