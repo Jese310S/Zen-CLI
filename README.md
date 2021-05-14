@@ -23,7 +23,8 @@ I chose to challenge myself and make the app a command line program.  With each 
 
 #### Challenges Faced:
 
-Going into the challenge I had used this tech stack only a couple times.  I had not used an API call with a CLI before.  This meant I spent more time reading documentation and reminding myself how things worked.  Also command line applications are a bit niche.  There is not too many people who make them.  This means less documentation/questions & answer out there.  This did not make things impossible 
+Going into the challenge I had used this tech stack only a couple times.  I had not used an API call with a CLI before. I decided this would be a good time to challenge myself and give it a try. This meant I spent more time reading documentation and reminding myself how things worked.  Apparently, command line applications are a bit niche.  There is not too many people who make them.  This means less documentation/questions & answers out there.
+I also faced challenges with testing.  Writing tests for API response is not something I have done before.  After research and experimentation the solution that I used was to test the call with mock data.
 
 ## Features
 
