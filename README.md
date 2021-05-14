@@ -68,4 +68,17 @@ The authentication for the API uses basic authentication.  To use the App you wi
 
 ## How to Install
 
+1. You will need Node.js installed on your computer.
+
+[Download Node.js here]: https://nodejs.org/en/download/
+
+2. Fork or Clone this repository to your local computer
+
+3.  You will need to install any dependencies of the app.  You can do this wil the following commands from the root directory :
+
+`npm install`
+
+4. In the .env_sample file enter the username and password provided to you.  Then rename the file to .env.
+5. Then type `npm start` to begin the program.
+
 ## How to Run Tests
