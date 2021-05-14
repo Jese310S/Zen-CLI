@@ -32,6 +32,7 @@ I also faced challenges with testing.  Writing tests for API response is not som
 - Simple UI
 - Usage of Zendesk API
 - Prompts for user input
+- Pagination of tickets 
 
 
 
