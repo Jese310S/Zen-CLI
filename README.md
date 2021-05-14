@@ -64,7 +64,7 @@ This testing was used for both main functions of the program.  It tests the getT
 
 ## Authentication & Dotenv
 
-The authentication for the API uses basic authentication.  To use the App you will need to be given the username and password by myself.  You could also sign up for a Zendesk account and use your usename and password in the way shown in the .env_sample file.  
+The authentication for the API uses basic authentication.  To use the App you will need to be given the username and password.  Rename the dev.example.env file to .env.  In that file enter the username and password given into the variables.  This should now allow the API to authenticate with the environment variables.
 
 ## How to Install
 
