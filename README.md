@@ -35,6 +35,8 @@ Going into the challenge I had used this tech stack only a couple times .  I had
 
 ## User Flow
 
+![User Flow](/images/user_flow.jpeg)
+
 ## Tech Stack & Npm Packages
 
 - Node
