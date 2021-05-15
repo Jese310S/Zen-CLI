@@ -9,6 +9,7 @@
   * [Testing](#testing)
   * [Authentication](#authentication)
   * [How to Install](#how-to-install)
+  * [How to Use](#how-to-use)
   * [How to Run Tests](#how-to-run-tests)
 
 
@@ -23,7 +24,9 @@ I chose to challenge myself and make the app a command line program.  With each 
 
 #### Challenges Faced
 
-Going into the challenge I had used this tech stack only a couple times.  I had not used an API call with a CLI before. I decided this would be a good time to challenge myself and give it a try. This meant I spent more time reading documentation and reminding myself of how things worked.  Apparently, command line applications are a bit niche especially when done in node.  This means less documentation/questions & answers out there.
+Going into the challenge I had used this tech stack only a couple of times.  I had not used an API calls with a CLI before. I decided this would be a good time to challenge myself and give it a try. This meant I spent more time reading documentation and reminding myself of how things worked.  
+
+Command line programs are a bit niche especially when done in node so there was less documentation / questions & answers out there for me to learn from. To overcome this I spent more time researching the methods I wanted to use and testing the suitability to my overall program.
 
 I also faced challenges with testing.  Writing tests for an API response is not something I have done before.  After research and experimentation the solution that I used was to test the call with mock data.
 
@@ -84,9 +87,9 @@ The authentication for the API uses basic authentication. The program uses Doten
 
 4. In the dev.example.env file add the username and password provided to you.  Then rename the file to .env
 
-## Usage
+## How to Use
 
-1. In the console type `npm start` to begin the program.
+1. After installation, in the console type `npm start` to begin the program.
 2. Choose the prompts that best suit your needs
 
 ## How to Run Tests
