@@ -161,7 +161,7 @@ const inquire = () => {
                            inquire();
                       }).catch(err => {
                         //handle err
-                        if(err) console.log(err.code, '\nWe did not find that ticket, please enter a valid ticket number');
+                        if(err) console.log( '\nWe did not find that ticket, please enter a valid ticket number');
                         inquire();
                       })
 
