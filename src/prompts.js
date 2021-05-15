@@ -117,7 +117,7 @@ const inquire = () => {
               }
           }).catch(err => {
             //handle err
-            if (err) console.log(err.code, "\nSomething went wrong, please try again.")
+            if (err) console.log( "\nSomething went wrong, please try again.")
           });
       } else if (answers.options === "Display a ticket") {
             // Prompt user to ask if they know ticket id number
