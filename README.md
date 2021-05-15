@@ -3,7 +3,6 @@
  * [Purpose](#purpose)
       - [Why use a CLI?](#why-use-a-cli)
       - [Challenges Faced:](#challenges-faced)
-      - [Bugs and Future Fixes:](#bugs-and-future-fixes)
   * [Features](#features)
   * [User Flow](#user-flow)
   * [Tech Stack & Npm Packages](#tech-stack)
