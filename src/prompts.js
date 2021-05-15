@@ -18,7 +18,10 @@ const pagination = (prev, next) => {
 
       if (answers.options === "Prev Page") {
           ZenAPI.getTickets(prev).then((results, err) => {
-              if (err) console.log(err.code, "\nSomething went wrong, please check and try again.")
+              if (err){ 
+                  console.log("\nSomething went wrong, please check and try again.");
+                  inquire();
+              }
               //instantiate table 
               let table = new Table ({
                   head: ['ID', 'Created_at', 'Submitter_Id', 'Subject'], 
@@ -41,7 +44,10 @@ const pagination = (prev, next) => {
       } else if (answers.options === "Next Page") {
           ZenAPI.getTickets(next).then((results, err) => {
               //handle err
-              if (err) console.log(err.code, "\nSomething went wrong, please check and try again.")
+              if (err){
+                   console.log( "\nSomething went wrong, please check and try again.");
+                   inquire();
+              }
               //instantiate table
               let table = new Table ({
                   head: ['ID', 'Created_at', 'Submitter_Id', 'Subject'], 
@@ -53,9 +59,15 @@ const pagination = (prev, next) => {
               });
               //console.log table to be created by cli-table 
               console.log(table.toString());
+
+              // displays message then user chooses next and there is no more tickets
+              if (typeof(results.data.tickets[0]) == "undefined"){
+                  console.log("\nYou've reached the end, no new tickets to display")
+                  inquire();
+                  return
+              }
               //makes sure prev does not appear when on first or last page
               if (results.data.tickets[0].id > 25) {
-                  
                   pagination(results.data.links.prev, results.data.links.next);// api links to paginate and go to next and prev pages
               } else {
                   pagination(false, results.data.links.next);
@@ -85,9 +97,6 @@ const inquire = () => {
   }]).then(answers => {
       if (answers.options === "Display all tickets"){
           ZenAPI.getTickets().then((results, err) => {
-              console.log(results);
-              //handle err
-              if (err) console.log(err.code, "\nSomething went wrong, please check and try again.")
               //instantiate table
               let table = new Table ({
                   head: ['ID', 'Created_at', 'Submitter_Id', 'Subject'], 
@@ -106,6 +115,9 @@ const inquire = () => {
               } else {
                   pagination(false, results.data.links.next);
               }
+          }).catch(err => {
+            //handle err
+            if (err) console.log(err.code, "\nSomething went wrong, please try again.")
           });
       } else if (answers.options === "Display a ticket") {
             // Prompt user to ask if they know ticket id number
@@ -129,8 +141,6 @@ const inquire = () => {
                     ]).then(ticketId => {
                       ZenAPI.getSingleTicket(ticketId.idNum).then((ticket, err) => {
                           let ticketChoice = ticket.data.ticket
-                      //handle err
-                            if(err) console.log(err.code, '\nPlease enter a valid ticket number');
                       //instantiate Table
                           var table = new Table(
                               {
@@ -149,6 +159,10 @@ const inquire = () => {
                           //console.log to show table
                           console.log(table.toString());
                            inquire();
+                      }).catch(err => {
+                        //handle err
+                        if(err) console.log(err.code, '\nWe did not find that ticket, please enter a valid ticket number');
+                        inquire();
                       })
 
                     })
